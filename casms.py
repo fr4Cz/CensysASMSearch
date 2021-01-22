@@ -95,7 +95,7 @@ def _output_api_config():
 
 def _get_asm_hosts(filter_tags=None):
     targets = []
-    print(msg_icons["ok"], "Collecting ASM assets")
+    print(msg_icons["ok"], "Collecting ASM hosts in assets")
 
     # Fetch all hosts
     headers = {"Accept": "application/json", "Censys-Api-Key": api["asm_key"]}
@@ -130,12 +130,12 @@ def _get_asm_hosts(filter_tags=None):
         else:
             page += 1
 
-    print(msg_icons["ok"], "Found {} stored assets in ASM".format(len(targets)))
+    print(msg_icons["ok"], "Found {} stored hosts in ASM".format(len(targets)))
 
     if len(targets) > 0: 
         return targets
     else:
-        print(msg_icons["warn"], "No ASM assets were found, quitting.")
+        print(msg_icons["warn"], "No ASM hosts were found, quitting.")
         sys.exit(0)
 
 
